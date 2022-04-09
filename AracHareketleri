@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class hareketkodu : MonoBehaviour
+
+    
+{
+    // Start is called before the first frame update
+    public float speed;
+    public float rightspeed;
+    public float horizantalInput;
+    public float forwardInput;
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //transform.Translate(0, 0, 0.1F);
+        // aracın hızını belirledik.
+        transform.Translate(Vector3.forward*Time.deltaTime * speed * forwardInput);
+        transform.Rotate(Vector3.up*Time.deltaTime  * rightspeed * horizantalInput);
+        horizantalInput = Input.GetAxis("Horizontal");
+        forwardInput = Input.GetAxis("Vertical");
+        
+        
+    }
+}
