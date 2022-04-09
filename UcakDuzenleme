@@ -1,0 +1,41 @@
+public class PlayerControllerX : MonoBehaviour
+{
+    public float backspeed;
+    public float UpSpeed;
+    public float DownSpeed;
+    public float verticalInput;
+    public float horizontalInput;
+    public float forwardspeed;
+    public float rightspeed;
+    public float leftspeed;
+   
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        // get the user's vertical input
+        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+       // yukariInput = Input.GetAxis("Yukari");
+
+        // move the plane forward at a constant rate
+        transform.Translate(Vector3.back * backspeed *   verticalInput);
+        transform.Translate(Vector3.forward * forwardspeed *  verticalInput);
+
+        // tilt the plane up/down based on up/down arrow keys
+        transform.Rotate(Vector3.left * UpSpeed *    horizontalInput);
+        //transform.Rotate(Vector3.right * DownSpeed *  horizontalInput);
+        
+        //transform.Rotate(Vector3.right * rightspeed * * verticalInput);
+        //transform.Rotate(Vector3.left * leftspeed *  verticalInput);
+
+        // vertical = dikey
+        // horizontal = yatay
+    }
+}
